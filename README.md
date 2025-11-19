@@ -1,59 +1,7 @@
-# App
+# Changes and Added Files
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.1.
+## CountrySearchComponent
+This component contains the form and its related implementation.
 
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## SiteService
+This service is use to site wide events such as the loading bar and snackbar. Instead of each component having an individual loading bar, I place the loading bar only in the header. The root component observes the siteLoadingListener from this service and will display the loading bar if the siteLoadingListener emits true and hide the loading bar if it emits false. This way, the loading indicator can be displayed and hidden from any component. The same concept is applied in the sidebar. For the snackbar, instead of each component have their own instance of snackbar, I created a function showSnackBar that accepts a message and action(default value is 'Close'). This way, components will only call this function instead of having an instance of SnackBar.
